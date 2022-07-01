@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import Store from "./components/Store/Store";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [inventory, setInventory] = useState([]);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div>
+      <Navbar />
       <div className="main-container">
         <Store inventory={inventory} />
       </div>

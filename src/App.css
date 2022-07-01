@@ -1,0 +1,13 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.main-container{
+  display: flex;
+  height:max-content;
+  background-color: #f5f5f5;
+}
