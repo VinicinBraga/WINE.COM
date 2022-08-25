@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import axios from "axios";
 import Store from "./components/Store/Store";
 import Navbar from "./components/Navbar/Navbar";
 import PriceButtons from "./components/PriceButtons/PriceButtons";
+import axios from "axios";
 
 function App() {
   const [inventory, setInventory] = useState([]);
 
+  const searchItems = async () => {
+    const response = await axios.get(
+      "https://wine-back-test.herokuapp.com/products?page=1&limit=10"
+    );
+    setInventory(response.data.items);
+  };
+
   useEffect(() => {
-    axios
-      .get("https://wine-back-test.herokuapp.com/products?page=1&limit=10")
-      .then((response) => {
-        setInventory(response.data.items);
-      });
+    searchItems();
   }, []);
 
   return (
